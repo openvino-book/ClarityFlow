@@ -10,60 +10,60 @@
 
 </div>
 
-## 📖 简介
+## 📖 Overview
 
-ClarityFlow 是一款任务澄清系统，帮助团队在执行任务前明确目标、定义成功标准、识别风险。通过标准化的工作流（澄清 → 确认 → 执行 → 完成），减少沟通成本，提高交付质量。
+ClarityFlow is a task clarification system that helps teams define goals, establish success criteria, and identify risks before execution. Through a standardized workflow (Clarify → Confirm → Execute → Complete), it reduces communication costs and improves delivery quality.
 
-### 🎯 核心价值
+### 🎯 Core Values
 
-- **任务澄清** - 在动手前明确"做什么"和"为什么"
-- **成功标准** - 用 Definition of Done (DoD) 量化完成标准
-- **风险识别** - 提前预判可能影响交付的因素
-- **范围边界** - 明确哪些内容不在本次任务范围内，防止范围蔓延
+- **Task Clarification** - Define "what" and "why" before starting work
+- **Success Criteria** - Quantify completion standards with Definition of Done (DoD)
+- **Risk Identification** - Anticipate factors that may impact delivery
+- **Scope Boundaries** - Clearly define what's out of scope to prevent creep
 
-## ✨ 功能特性
+## ✨ Features
 
-### 📋 看板式任务管理
-- **四阶段工作流**：待澄清 → 已确认 → 进行中 → 已完成
-- **拖拽友好**：类似 Trello 的看板布局（移动端支持横向滚动）
-- **状态可视化**：颜色编码的状态标签和卡片边框
+### 📋 Kanban-style Task Management
+- **Four-stage Workflow**: Needs Clarification → Confirmed → In Progress → Done
+- **Drag-friendly**: Trello-like kanban layout (mobile-friendly with horizontal scroll)
+- **Status Visualization**: Color-coded status badges and card borders
 
-### 📝 任务文档化
-- **结构化字段**：
-  - 背景与问题 (Problem)
-  - 成功标准 (Definition of Done)
-  - 边界 (Out of Scope)
-  - 关键人 (Stakeholders)
-  - 风险 (Risks)
-  - 截止日期 (Due Date)
-- **必填字段保护**：流转到已确认状态时，系统会强制检查核心字段完整性
-- **只读保护**：已完成的任务自动锁定字段
+### 📝 Task Documentation
+- **Structured Fields**:
+  - Background & Problem
+  - Definition of Done (Success Criteria)
+  - Out of Scope (Boundaries)
+  - Stakeholders
+  - Risks
+  - Due Date
+- **Required Field Protection**: System validates core field completeness when transitioning to CONFIRMED status
+- **Read-only Protection**: Completed tasks automatically lock fields
 
-### 🔄 状态流转
-- **单向流转**：NEEDS_CLARIFICATION → CONFIRMED → IN_PROGRESS → DONE
-- **乐观锁**：基于版本号的并发控制，防止覆盖冲突
-- **字段完整性校验**：I5 约束确保 CONFIRMED+ 状态的任务必含核心字段
+### 🔄 State Transitions
+- **One-way Flow**: NEEDS_CLARIFICATION → CONFIRMED → IN_PROGRESS → DONE
+- **Optimistic Locking**: Version-based concurrency control prevents override conflicts
+- **Field Integrity Validation**: I5 invariant ensures CONFIRMED+ tasks contain all core fields
 
-### 📤 Markdown 导出
-- 一键导出任务文档为 Markdown 格式
-- 包含完整上下文、风险、边界信息
-- 支持复制到文档系统（Notion、Confluence 等）
+### 📤 Markdown Export
+- One-click export of task documents to Markdown format
+- Includes complete context, risks, and boundary information
+- Supports copying to documentation systems (Notion, Confluence, etc.)
 
-### 🎨 现代化 UI
-- **Modern SaaS 风格**：参考 Linear/Notion 的设计语言
-- **响应式布局**：完美支持桌面和移动设备
-- **沉浸式编辑**：文档风格的详情页，专注内容创作
+### 🎨 Modern UI
+- **Modern SaaS Style**: Design language inspired by Linear/Notion
+- **Responsive Layout**: Perfect support for desktop and mobile devices
+- **Immersive Editing**: Document-style detail pages for focused content creation
 
-## 🛠️ 技术栈
+## 🛠️ Tech Stack
 
-### 后端
+### Backend
 - **Runtime**: Node.js 20+
 - **Framework**: Express + TypeScript
 - **Database**: SQLite + Prisma ORM
 - **Validation**: Zod
 - **Testing**: Jest
 
-### 前端
+### Frontend
 - **Runtime**: React 19
 - **Build Tool**: Vite
 - **State Management**: TanStack Query (React Query)
@@ -76,257 +76,257 @@ ClarityFlow 是一款任务澄清系统，帮助团队在执行任务前明确�
 - **Container**: Docker + Docker Compose
 - **Version Control**: Git
 
-## 📦 安装与运行
+## 📦 Installation & Usage
 
-### 前置要求
+### Prerequisites
 
 - **Node.js** >= 20.0.0
 - **npm** >= 10.0.0
-- **Git**（可选，用于克隆代码）
+- **Git** (optional, for cloning)
 
-### 本地开发
+### Local Development
 
-#### 1. 克隆仓库
+#### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/openvino-book/ClarityFlow.git
 cd ClarityFlow
 ```
 
-#### 2. 安装依赖
+#### 2. Install Dependencies
 
 ```bash
 npm install
 ```
 
-#### 3. 初始化数据库
+#### 3. Initialize Database
 
 ```bash
 npx prisma migrate dev
 ```
 
-#### 4. 启动开发服务器
+#### 4. Start Development Server
 
 ```bash
-# 同时启动 API 和 Web
+# Start both API and Web
 npm run dev
 
-# 或分别启动
-npm run dev:api  # API 服务运行在 http://localhost:3000
-npm run dev:web  # Web 服务运行在 http://localhost:5173
+# Or start separately
+npm run dev:api  # API runs at http://localhost:3000
+npm run dev:web  # Web runs at http://localhost:5173
 ```
 
-#### 5. 访问应用
+#### 5. Access Application
 
-打开浏览器访问：**http://localhost:5173**
+Open browser at: **http://localhost:5173**
 
-### Docker 部署（推荐用于生产）
+### Docker Deployment (Recommended for Production)
 
-#### 使用 Docker Compose（推荐）
+#### Using Docker Compose (Recommended)
 
 ```bash
-# 构建并启动容器
+# Build and start containers
 docker-compose up -d
 
-# 查看日志
+# View logs
 docker-compose logs -f
 
-# 停止容器
+# Stop containers
 docker-compose down
 
-# 重新构建并启动
+# Rebuild and start
 docker-compose up -d --build
 ```
 
-#### 使用 Docker 命令
+#### Using Docker Commands
 
 ```bash
-# 构建镜像
+# Build image
 docker build -t clarityflow .
 
-# 运行容器
+# Run container
 docker run -d \
   -p 8080:3000 \
   -v ./prisma/dev.db:/app/prisma/dev.db \
   --name clarityflow \
   clarityflow
 
-# 查看日志
+# View logs
 docker logs -f clarityflow
 
-# 停止并删除容器
+# Stop and remove container
 docker stop clarityflow
 docker rm clarityflow
 ```
 
-#### 访问生产应用
+#### Access Production Application
 
-启动后访问：**http://localhost:8080**
+After startup, access at: **http://localhost:8080**
 
-## 📚 使用指南
+## 📚 Usage Guide
 
-### 创建任务
+### Create a Task
 
-1. 点击右上角 **"New Card"** 按钮
-2. 填写任务标题（必填）
-3. 点击 **"创建"** 进入详情页
+1. Click **"New Card"** button in the top right
+2. Enter task title (required)
+3. Click **"Create"** to enter detail page
 
-### 编辑任务文档
+### Edit Task Documentation
 
-1. 在看板上点击任意任务卡片
-2. 编辑以下字段：
-   - **背景与问题** - 详细说明任务背景和当前问题（必填，状态流转需要）
-   - **成功标准** - 定义验收标准（必填，状态流转需要）
-   - **边界** - 明确排除的内容（可选）
-   - **关键人** - 涉及的团队或个人（可选）
-   - **风险** - 可能影响交付的因素（可选）
-   - **截止日期** - 任务截止时间（可选）
-3. 点击 **"保存更改"**
+1. Click any task card on the kanban board
+2. Edit the following fields:
+   - **Background & Problem** - Detailed task background and current issues (required for status transition)
+   - **Success Criteria** - Define acceptance criteria (required for status transition)
+   - **Out of Scope** - Explicitly exclude content (optional)
+   - **Stakeholders** - Teams or individuals involved (optional)
+   - **Risks** - Factors that may impact delivery (optional)
+   - **Due Date** - Task deadline (optional)
+3. Click **"Save Changes"**
 
-### 推进任务状态
+### Advance Task Status
 
-在任务详情页右上角：
-- **确认任务** (待澄清 → 已确认) - 确保核心字段已填写
-- **开始执行** (已确认 → 进行中) - 标记任务进入开发阶段
-- **标记完成** (进行中 → 已完成) - 任务完成后锁定字段
+In the top right of task detail page:
+- **Confirm Task** (Needs Clarification → Confirmed) - Ensure core fields are filled
+- **Start Execution** (Confirmed → In Progress) - Mark task as in development
+- **Mark Complete** (In Progress → Done) - Lock fields after task completion
 
-### 导出任务文档
+### Export Task Documentation
 
-1. 打开任务详情页
-2. 点击右上角 **"Export"** 按钮
-3. 在弹窗中复制 Markdown 内容
-4. 粘贴到文档系统（Notion、Confluence 等）
+1. Open task detail page
+2. Click **"Export"** button in top right
+3. Copy Markdown content from popup
+4. Paste into documentation system (Notion, Confluence, etc.)
 
-## 🏗️ 项目结构
+## 🏗️ Project Structure
 
 ```
 ClarityFlow/
 ├── apps/
-│   ├── api/              # Express API 后端
+│   ├── api/              # Express API Backend
 │   │   ├── src/
-│   │   │   ├── routes/   # API 路由
-│   │   │   ├── services/ # 业务逻辑
-│   │   │   ├── middleware/# 中间件
-│   │   │   └── app.ts    # Express 应用
+│   │   │   ├── routes/   # API routes
+│   │   │   ├── services/ # Business logic
+│   │   │   ├── middleware/# Middleware
+│   │   │   └── app.ts    # Express app
 │   │   └── prisma/       # Prisma schema
-│   └── web/              # React 前端
+│   └── web/              # React Frontend
 │       ├── src/
 │       │   ├── components/
-│       │   │   └── ui/   # UI 组件库
-│       │   ├── pages/    # 页面组件
-│       │   └── lib/      # 工具函数
+│       │   │   └── ui/   # UI component library
+│       │   ├── pages/    # Page components
+│       │   └── lib/      # Utility functions
 │       └── index.html
 ├── prisma/
-│   ├── schema.prisma     # 数据库模型
-│   └── dev.db            # SQLite 数据库（开发）
-├── Dockerfile            # 多阶段 Docker 配置
-├── docker-compose.yml    # Docker Compose 配置
-└── README.md             # 本文件
+│   ├── schema.prisma     # Database schema
+│   └── dev.db            # SQLite database (dev)
+├── Dockerfile            # Multi-stage Docker config
+├── docker-compose.yml    # Docker Compose config
+└── README.md             # This file
 ```
 
-## 🔧 开发指南
+## 🔧 Development Guide
 
-### 运行测试
+### Run Tests
 
 ```bash
-# 运行所有测试
+# Run all tests
 npm test
 
-# 仅运行 API 测试
+# Run only API tests
 npm run test:api
 ```
 
-### 代码检查
+### Code Linting
 
 ```bash
-# 运行 ESLint
+# Run ESLint
 npm run lint
 
-# 自动修复问题
+# Auto-fix issues
 npm run lint:fix
 ```
 
-### 数据库迁移
+### Database Migrations
 
 ```bash
-# 创建迁移
+# Create migration
 npx prisma migrate dev --name <migration-name>
 
-# 重置数据库（开发环境）
+# Reset database (dev environment)
 npx prisma migrate reset
 
-# 生成 Prisma Client
+# Generate Prisma Client
 npx prisma generate
 ```
 
-### 构建
+### Build
 
 ```bash
-# 构建所有应用
+# Build all apps
 npm run build
 
-# 仅构建 API
+# Build only API
 npm run build -w apps/api
 
-# 仅构建 Web
+# Build only Web
 npm run build -w apps/web
 ```
 
-## 🏛️ 系统架构
+## 🏛️ System Architecture
 
-### 数据模型
+### Data Model
 
-**Card (任务卡片)**
-- `id`: UUID（主键，不可变）
-- `version`: 版本号（乐观锁）
-- `status`: 状态机（NEEDS_CLARIFICATION | CONFIRMED | IN_PROGRESS | DONE）
-- `problem`, `successCriteria`, `outOfScope`, `stakeholders`, `risks`: 业务字段
-- `createdAt`, `updatedAt`: 时间戳
-- `deletedAt`: 软删除标记
+**Card (Task Card)**
+- `id`: UUID (primary key, immutable)
+- `version`: Version number (optimistic lock)
+- `status`: State machine (NEEDS_CLARIFICATION | CONFIRMED | IN_PROGRESS | DONE)
+- `problem`, `successCriteria`, `outOfScope`, `stakeholders`, `risks`: Business fields
+- `createdAt`, `updatedAt`: Timestamps
+- `deletedAt`: Soft delete marker
 
-### 系统不变量 (Invariants)
+### System Invariants
 
-1. **I1. Identity Constancy**: 卡片 ID 不可变
-2. **I2. Time Flow**: 创建时间 ≤ 更新时间
-3. **I3. Ghost Defense**: 软删除项默认从所有标准查询中过滤
-4. **I4. State Machine**: 单向状态流转（不可逆）
-5. **I5. Continuous Integrity**: CONFIRMED+ 状态必须包含核心字段
-6. **I6. Export Completeness**: 导出必须包含上下文、风险、边界
-7. **I7. Concurrency Protection**: 所有更新必须检查版本号
+1. **I1. Identity Constancy**: Card IDs are immutable
+2. **I2. Time Flow**: createdAt ≤ updatedAt always
+3. **I3. Ghost Defense**: Soft-deleted items filtered from standard queries by default
+4. **I4. State Machine**: One-way state transitions (irreversible)
+5. **I5. Continuous Integrity**: CONFIRMED+ status must contain core fields
+6. **I6. Export Completeness**: Exports must include context, risks, boundaries
+7. **I7. Concurrency Protection**: All updates must check version number
 
-### API 端点
+### API Endpoints
 
-| 方法 | 路径 | 描述 |
-|------|------|------|
-| GET | `/api/cards` | 获取所有任务 |
-| GET | `/api/cards/:id` | 获取任务详情 |
-| POST | `/api/cards` | 创建任务 |
-| PATCH | `/api/cards/:id` | 更新任务（乐观锁） |
-| POST | `/api/cards/:id/transition` | 状态流转 |
-| GET | `/api/cards/:id/export` | 导出 Markdown |
-| DELETE | `/api/cards/:id` | 软删除任务 |
-| GET | `/health` | 健康检查 |
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/cards` | Get all tasks |
+| GET | `/api/cards/:id` | Get task details |
+| POST | `/api/cards` | Create task |
+| PATCH | `/api/cards/:id` | Update task (optimistic lock) |
+| POST | `/api/cards/:id/transition` | State transition |
+| GET | `/api/cards/:id/export` | Export Markdown |
+| DELETE | `/api/cards/:id` | Soft delete task |
+| GET | `/health` | Health check |
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎贡献！请遵循以下步骤：
+Contributions are welcome! Please follow these steps:
 
-1. Fork 本仓库
-2. 创建特性分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 创建 Pull Request
+1. Fork this repository
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Create Pull Request
 
-## 📄 许可证
+## 📄 License
 
-本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+This project is licensed under the MIT License. See [LICENSE](LICENSE) file for details.
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS 框架
-- [Prisma](https://www.prisma.io) - 现代化 ORM
-- [Vite](https://vitejs.dev) - 下一代前端构建工具
-- [TanStack Query](https://tanstack.com/query) - 强大的数据同步库
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [Prisma](https://www.prisma.io) - Modern ORM
+- [Vite](https://vitejs.dev) - Next-gen frontend build tool
+- [TanStack Query](https://tanstack.com/query) - Powerful data synchronization library
 
 ---
 
