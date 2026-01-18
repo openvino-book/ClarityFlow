@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Card {
+  id               String    @id @default(uuid())
+  title            String
+  problem          String
+  successCriteria String
+  outOfScope       String?
+  stakeholders     String?
+  risks            String?
+  status           String    @default("NEEDS_CLARIFICATION")
+  dueDate          DateTime?
+  version          Int       @default(0)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  deletedAt        DateTime?
+
+  @@map("cards")
+}

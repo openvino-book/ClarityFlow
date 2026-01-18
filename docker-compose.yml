@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: clarityflow
+    ports:
+      - "8080:3000"
+    volumes:
+      # Mount SQLite database for persistence
+      - ./prisma/dev.db:/app/prisma/dev.db
+      - ./prisma/dev.db-journal:/app/prisma/dev.db-journal
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

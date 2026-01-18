@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run lint)",
+      "Bash(npm run test)",
+      "Bash(npm run dev)",
+      "Bash(curl:*)",
+      "Bash(npx prisma init:*)",
+      "Bash(npx prisma migrate dev:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(npm test:*)",
+      "Bash(ls:*)",
+      "Bash(node:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(npm search:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(npx prisma db push:*)",
+      "Bash(sqlite3:*)",
+      "Bash(npx ts-node -e \"\nimport { getPrismaClient } from ''./src/lib/prisma'';\nimport { generateMarkdownExport } from ''./src/routes/cards'';\n\nconst prisma = getPrismaClient\\(\\);\n\nasync function test\\(\\) {\n  const card = await prisma.card.create\\({\n    data: {\n      title: ''Example Card'',\n      problem: ''This is a test problem'',\n      successCriteria: ''Success criteria here'',\n      outOfScope: ''Optional out of scope'',\n      stakeholders: ''Team A, Team B'',\n      risks: ''Some risks'',\n      status: ''IN_PROGRESS'',\n      version: 1,\n    },\n  }\\);\n\n  const markdown = generateMarkdownExport\\(card\\);\n  console.log\\(''=== Generated Markdown ===''\\);\n  console.log\\(markdown\\);\n  \n  await prisma.card.deleteMany\\(\\);\n  await prisma.$disconnect\\(\\);\n}\n\ntest\\(\\).catch\\(console.error\\);\n\")",
+      "Bash(npx vitest run:*)",
+      "Bash(timeout:*)",
+      "Bash(powershell:*)",
+      "Bash(npx tsx:*)",
+      "Bash(del:*)",
+      "Bash(ping:*)",
+      "Bash(gh:*)",
+      "Bash(where:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)"
+    ]
+  }
+}
